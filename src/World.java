@@ -35,15 +35,15 @@ public class World {
 		boolean nameBad = true;
 		while (nameBad) {
 			if (typeOfFarm.equalsIgnoreCase("animal")) {
-				testFarm.startAnimalFarm();
+				testFarm.startAnimalFarm(numOfFarmers);
 
 				nameBad = false;
 
 			} else if (typeOfFarm.equalsIgnoreCase("crop")) {
-				testFarm.startCropFarm();
+				testFarm.startCropFarm(numOfFarmers);
 				nameBad = false;
 			} else if (typeOfFarm.equalsIgnoreCase("hybrid")) {
-				testFarm.startHybridFarm();
+				testFarm.startHybridFarm(numOfFarmers);
 				nameBad = false;
 			} else {
 				System.out.println("What kind of farm would you like to start?");
@@ -59,10 +59,14 @@ public class World {
 			{
 				double totalCash = testFarm.totalCash();
 				double madeCash = testFarm.generatePassive();
+				testFarm.runDayCycle();
 				System.out.println("You earned $" + madeCash + " and the farm has $" + totalCash + " total");
 				cycle = false;
 			} else // night cycle
 			{
+				testFarm.runNightCycle();
+				double totLoss = testFarm.runPredatorLoss
+				double totalCash = testFarm.totalCash();
 				cycle = true;
 			}
 			numOfTurns++;
