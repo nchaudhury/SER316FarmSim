@@ -6,7 +6,7 @@ apply plugin: 'application'
 apply plugin: 'jacoco'   // For Code Coverage
 
 mainClassName = "main.java.World"
-task run(type: JavaExec) {
+task runner(type: JavaExec) {
 
   classpath = sourceSets.main.runtimeClasspath
 
