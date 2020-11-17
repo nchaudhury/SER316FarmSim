@@ -74,7 +74,21 @@ public class Farm {
     }
 
     public void runNightCycle(int numOfTurns) {
-        // TODO Auto-generated method stub
+        double moneyLost = 0.0;
+        double chance = Math.random();
+        if (chance < .25) {
+            moneyLost += animalList.get((int) chance * animalList.size()).getCostTonight();
+            animalList.remove((int) chance * animalList.size());
+
+        } else if (chance < .5) {
+            moneyLost += cropList.get((int) chance * cropList.size()).getCostTonight();
+            cropList.remove((int) chance * cropList.size());
+        } else {
+            System.out.println("No money lost tonight");
+        }
+        currency -= moneyLost;
+        System.out.println("tonight you lost $" + String.format("%.2f", moneyLost));
+        System.out.println("You currently have $" + String.format("%.2f", currency));
 
     }
 
@@ -82,18 +96,18 @@ public class Farm {
         double cashMade = 0.0;
         if (!(cropList == null))
             for (int i = 0; i < cropList.size(); i++) {
-                cashMade += cropList.get(i).getCostToday();
+                cashMade += cropList.get(i).getCostToday(numOfTurns);
             }
         if (!(animalList == null))
             for (int i = 0; i < animalList.size(); i++) {
-                cashMade += animalList.get(i).getCostToday();
+                cashMade += animalList.get(i).getCostToday(numOfTurns);
             }
 
         for (int i = 0; i < farmersList.size(); i++) {
             cashMade = cashMade * farmersList.get(i).getAffinityMultiplier();
         }
         currency += cashMade;
-        System.out.println("You made $" + cashMade);
-        System.out.println("You currently have $" + currency);
+        System.out.println("You made $" + String.format("%.2f", cashMade));
+        System.out.println("You currently have $" + String.format("%.2f", currency));
     }
 }

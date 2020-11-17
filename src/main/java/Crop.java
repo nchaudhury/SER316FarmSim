@@ -18,7 +18,7 @@ public class Crop {
 
     public Crop() {
         baseCost = 10;
-        affinityMultiplier = Math.random() + 1;
+        affinityMultiplier = Math.random() + .5;
         productCost = 1;
         age = 0;
         isDiseased = false;
@@ -27,16 +27,25 @@ public class Crop {
 
     public Crop(int ageIn) {
         baseCost = 10;
-        affinityMultiplier = Math.random() + 1;
+        affinityMultiplier = Math.random() + .5;
         productCost = 1;
         age = ageIn;
         isDiseased = false;
         isAlive = true;
     }
 
-    public double getCostToday() {
-        double todayCost = baseCost * affinityMultiplier;
-        return todayCost;
+    public double getCostToday(int numOfTurns) {
+        double todayCost;
+        if (numOfTurns % 3 == 0) {
+            todayCost = baseCost * affinityMultiplier;
+            return todayCost;
+        }
+        return 0.0;
+
+    }
+
+    public double getCostTonight() {
+        return baseCost;
     }
 
 }

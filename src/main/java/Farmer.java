@@ -16,6 +16,6 @@ public class Farmer {
     }
 
     public Farmer() {
-        affinityMultiplier = Math.random() + 1;
+        affinityMultiplier = Math.random() + .5;
     }
 }
