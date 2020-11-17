@@ -61,7 +61,7 @@ public class World {
 
             }
         }
-        while (numOfTurns <= 50) { // this will run 50 turns or 100 cycles
+        while (testFarm.getCurrency() < 10000) { // this will run until the farm has made over 10 grand
 
             if (cycle) { // day logic
                 System.out.println("Day Cycle " + numOfTurns);

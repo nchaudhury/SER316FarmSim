@@ -26,6 +26,11 @@ public class Farm {
     private ArrayList<Farmer> farmersList;
     private ArrayList<Animal> animalList;
     private ArrayList<Crop> cropList;
+
+    public double getCurrency() {
+        return currency;
+    }
+
     private int defaultNumber = 10;
     private double currency = 0.0;
     private double defaultPrice = 1000;
