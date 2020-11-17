@@ -1,0 +1,62 @@
+plugins {
+     id "com.github.spotbugs" version "4.5.1"
+     id "checkstyle"
+ }
+apply plugin: 'application'
+apply plugin: 'jacoco'   // For Code Coverage
+
+mainClassName = "main.java.World"
+
+// Repositories and dependencies for code go here
+repositories {
+  jcenter()
+}
+
+dependencies {
+  implementation 'junit:junit:4.12'
+  implementation 'junit:junit:4.12'
+  implementation 'junit:junit:4.12' 
+  compile 'com.io7m.xom:xom:1.2.+'
+  compile 'net.sourceforge.nekohtml:nekohtml:1.9.+'
+  compile "junit:junit:4.12"  // For J-Unit Testing
+}
+///////////////////////////////////////////////////////////////////////
+// Configure Checkstyle
+/////////////////////////////////////////////////////////////////////
+ apply plugin: 'checkstyle'
+ checkstyle {
+   // Keep checkstyle a little quieter
+   ignoreFailures = true
+   showViolations = false
+ }
+
+ tasks.withType(Checkstyle) {
+   reports {
+     html.enabled = true
+     xml.enabled = false
+   }
+ }
+ checkstyle {
+     toolVersion = "8.8"
+
+}
+
+
+///////////////////////////////////////////////////////////////////////
+// Configure SpotBugs
+///////////////////////////////////////////////////////////////////////
+// To generate an HTML report instead of XML
+
+spotbugsMain {
+    reports {
+         xml.enabled = false
+         html.enabled = true
+     }
+	 
+ }
+spotbugs {
+     toolVersion = '4.0.4'
+     ignoreFailures = true
+     showProgress = true
+     effort = 'max'
+ }
