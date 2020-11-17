@@ -19,9 +19,6 @@ public class Farm {
 
 	public Farm() {
 		currentPrice = defaultPrice;
-		farmersList = new ArrayList<>();
-		animalList = new ArrayList<>();
-		cropList = new ArrayList<>();
 	}
 
 	public void startAnimalFarm(int numOfFarmers) {
@@ -72,5 +69,15 @@ public class Farm {
 		double newUpgradePrice = upgradePrice * 1.2;
 		currentPrice = upgradePrice;
 		upgradePrice = newUpgradePrice;
+	}
+
+	public void runNightCycle(int numOfTurns) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void runDayCycle(int numOfTurns) {
+		// TODO Auto-generated method stub
+		
 	}
 }

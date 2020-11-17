@@ -12,6 +12,8 @@ public class Animal {
 	private double productCost; // The amount the farm makes for selling animal item every 2 days
 	private int age; // Age of animal
 	private boolean isBaby; // if animal is <3 days old
+	private boolean isAlive = true;
+	private boolean isDieseased = false;
 
 	public Animal() {
 		baseCost = 10;

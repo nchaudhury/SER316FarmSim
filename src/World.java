@@ -31,7 +31,7 @@ public class World {
 
 		int numOfTurns = 0;
 		boolean cycle = true; // True is day and false is night
-		Farm testFarm;
+		Farm testFarm = new Farm();
 		boolean nameBad = true;
 		while (nameBad) {
 			if (typeOfFarm.equalsIgnoreCase("animal")) {
@@ -57,16 +57,15 @@ public class World {
 
 			if (cycle) // day logic
 			{
-				double totalCash = testFarm.totalCash();
-				double madeCash = testFarm.generatePassive();
-				testFarm.runDayCycle();
-				System.out.println("You earned $" + madeCash + " and the farm has $" + totalCash + " total");
+				System.out.println("Day Cycle " + numOfTurns);
+
+				testFarm.runDayCycle(numOfTurns);
 				cycle = false;
 			} else // night cycle
 			{
-				testFarm.runNightCycle();
-				double totLoss = testFarm.runPredatorLoss
-				double totalCash = testFarm.totalCash();
+				System.out.println("Night Cycle " + numOfTurns);
+
+				testFarm.runNightCycle(numOfTurns);
 				cycle = true;
 			}
 			numOfTurns++;
