@@ -125,11 +125,11 @@ public class Farm {
         double chance = Math.random();
         if (chance < .25 && animalList != null) {
             moneyLost += animalList.get((int) chance * animalList.size()).getCostTonight();
-            animalList.remove((int) chance * animalList.size());
+            // animalList.remove((int) chance * animalList.size());
 
         } else if (chance < .5 && cropList != null) {
             moneyLost += cropList.get((int) chance * cropList.size()).getCostTonight();
-            cropList.remove((int) chance * cropList.size());
+            // cropList.remove((int) chance * cropList.size());
         } else {
             System.out.println("No money lost tonight");
         }
