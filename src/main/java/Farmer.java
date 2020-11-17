@@ -3,7 +3,7 @@ package main.java;
 /**
  * Farmer.java
  * 
- * Handles the Farmer Logic
+ * <p>Handles the Farmer Logic
  * 
  * @author Neil Chaudhury
  * @version 1

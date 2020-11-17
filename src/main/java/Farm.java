@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Farm.java
  * 
- * Handles the Farm Logic
+ * <p>Handles the Farm Logic
  * 
  * @author Neil Chaudhury
  * @version 1
@@ -36,6 +36,11 @@ public class Farm {
         currentPrice = defaultPrice;
     }
 
+    /**
+     * Initializes an Animal Farm.
+     * 
+     * @param numOfFarmers is the number of Farmers on this farm
+     */
     public void startAnimalFarm(int numOfFarmers) {
         currentPrice = defaultPrice;
         farmersList = new ArrayList<>();
@@ -50,6 +55,11 @@ public class Farm {
 
     }
 
+    /**
+     * Initializes an Crop Farm.
+     * 
+     * @param numOfFarmers is the number of Farmers on this farm
+     */
     public void startCropFarm(int numOfFarmers) {
         currentPrice = defaultPrice;
         farmersList = new ArrayList<>();
@@ -64,6 +74,11 @@ public class Farm {
 
     }
 
+    /**
+     * Initializes an Hybrid Farm.
+     * 
+     * @param numOfFarmers is the number of Farmers on this farm
+     */
     public void startHybridFarm(int numOfFarmers) {
         currentPrice = defaultPrice;
         farmersList = new ArrayList<>();
@@ -79,6 +94,10 @@ public class Farm {
 
     }
 
+    /**
+     * Upgrade function to set the new price of the upgrade and subtract cost from
+     * current price.
+     */
     public void upgrade() {
         if (currency > 1.4 * currentPrice) {
             currency -= currentPrice;
@@ -86,10 +105,16 @@ public class Farm {
             currentPrice = upgradePrice;
             upgradePrice = newUpgradePrice;
             System.out.println("Farm Upgraded!");
-        } else
+        } else {
             System.out.println("Farm Upgrade Skipped");
+        }
     }
 
+    /**
+     * Function that runs what happens in the night. Can result in losses.
+     * 
+     * @param numOfTurns is the number of elapsed turns
+     */
     public void runNightCycle(int numOfTurns) {
         double moneyLost = 0.0;
         double chance = Math.random();
@@ -109,16 +134,23 @@ public class Farm {
 
     }
 
+    /**
+     * Day cycle runner.
+     * 
+     * @param numOfTurns is the number of elapsed turns
+     */
     public void runDayCycle(int numOfTurns) {
         double cashMade = 0.0;
-        if (!(cropList == null))
+        if (!(cropList == null)) {
             for (int i = 0; i < cropList.size(); i++) {
                 cashMade += cropList.get(i).getCostToday(numOfTurns);
             }
-        if (!(animalList == null))
+        }
+        if (!(animalList == null)) {
             for (int i = 0; i < animalList.size(); i++) {
                 cashMade += animalList.get(i).getCostToday(numOfTurns);
             }
+        }
 
         for (int i = 0; i < farmersList.size(); i++) {
             cashMade = cashMade * farmersList.get(i).getAffinityMultiplier();

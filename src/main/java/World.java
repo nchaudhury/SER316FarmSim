@@ -5,13 +5,19 @@ import java.util.Scanner;
 /**
  * World.java
  * 
- * Handles the World Logic and in game timer
+ * <p>Handles the World Logic and in game timer
  * 
  * @author Neil Chaudhury
  * @version 1
  */
 
 public class World {
+
+    /**
+     * Main Runner.
+     * 
+     * @param args input arguments
+     */
 
     public static void main(String[] args) {
         // World will need an array of Farms - when a farm has 10 farmers, a new farm
@@ -55,17 +61,14 @@ public class World {
 
             }
         }
-        while (numOfTurns <= 50) // this will run 50 turns or 100 cycles
-        {
+        while (numOfTurns <= 50) { // this will run 50 turns or 100 cycles
 
-            if (cycle) // day logic
-            {
+            if (cycle) { // day logic
                 System.out.println("Day Cycle " + numOfTurns);
 
                 testFarm.runDayCycle(numOfTurns);
                 cycle = false;
-            } else // night cycle
-            {
+            } else { // night cycle logic
                 System.out.println("Night Cycle " + numOfTurns);
 
                 testFarm.runNightCycle(numOfTurns);
