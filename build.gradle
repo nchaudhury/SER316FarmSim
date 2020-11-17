@@ -6,7 +6,13 @@ apply plugin: 'application'
 apply plugin: 'jacoco'   // For Code Coverage
 
 mainClassName = "main.java.World"
+task run(type: JavaExec) {
 
+  classpath = sourceSets.main.runtimeClasspath
+
+  main = "main.java.World"
+  standardInput = System.in
+}
 // Repositories and dependencies for code go here
 repositories {
   jcenter()

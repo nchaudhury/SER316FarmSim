@@ -14,8 +14,8 @@ public class Animal {
     private double productCost; // The amount the farm makes for selling animal item every 2 days
     private int age; // Age of animal
     private boolean isBaby; // if animal is <3 days old
-    private boolean isAlive = true;
-    private boolean isDieseased = false;
+//    private boolean isAlive = true;
+//    private boolean isDieseased = false;
 
     public Animal() {
         baseCost = 10;
@@ -25,14 +25,14 @@ public class Animal {
         isBaby = false;
     }
 
-    public Animal(int ageIn) {
-        baseCost = 10;
-        affinityMultiplier = Math.random() + .5;
-        productCost = 1;
-        age = ageIn;
-        if (age > 3)
-            isBaby = false;
-    }
+//    public Animal(int ageIn) {
+//        baseCost = 10;
+//        affinityMultiplier = Math.random() + .5;
+//        productCost = 1;
+//        age = ageIn;
+//        if (age > 3)
+//            isBaby = false;
+//    }
 
     public double getCostToday(int numOfTurns) {
         double todayCost;

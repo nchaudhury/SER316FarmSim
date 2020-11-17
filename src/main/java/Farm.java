@@ -11,6 +11,18 @@ import java.util.ArrayList;
  * @version 1
  */
 public class Farm {
+    public ArrayList<Farmer> getFarmersList() {
+        return farmersList;
+    }
+
+    public ArrayList<Animal> getAnimalList() {
+        return animalList;
+    }
+
+    public ArrayList<Crop> getCropList() {
+        return cropList;
+    }
+
     private ArrayList<Farmer> farmersList;
     private ArrayList<Animal> animalList;
     private ArrayList<Crop> cropList;
@@ -68,19 +80,24 @@ public class Farm {
     }
 
     public void upgrade() {
-        double newUpgradePrice = upgradePrice * 1.2;
-        currentPrice = upgradePrice;
-        upgradePrice = newUpgradePrice;
+        if (currency > 1.4 * currentPrice) {
+            currency -= currentPrice;
+            double newUpgradePrice = upgradePrice * 1.2;
+            currentPrice = upgradePrice;
+            upgradePrice = newUpgradePrice;
+            System.out.println("Farm Upgraded!");
+        } else
+            System.out.println("Farm Upgrade Skipped");
     }
 
     public void runNightCycle(int numOfTurns) {
         double moneyLost = 0.0;
         double chance = Math.random();
-        if (chance < .25) {
+        if (chance < .25 && animalList != null) {
             moneyLost += animalList.get((int) chance * animalList.size()).getCostTonight();
             animalList.remove((int) chance * animalList.size());
 
-        } else if (chance < .5) {
+        } else if (chance < .5 && cropList != null) {
             moneyLost += cropList.get((int) chance * cropList.size()).getCostTonight();
             cropList.remove((int) chance * cropList.size());
         } else {
@@ -108,6 +125,7 @@ public class Farm {
         }
         currency += cashMade;
         System.out.println("You made $" + String.format("%.2f", cashMade));
+        upgrade();
         System.out.println("You currently have $" + String.format("%.2f", currency));
     }
 }
