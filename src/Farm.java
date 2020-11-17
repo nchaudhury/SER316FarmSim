@@ -13,8 +13,9 @@ public class Farm {
 	private ArrayList<Animal> animalList;
 	private ArrayList<Crop> cropList;
 	private int defaultNumber = 10;
+	private double currency = 0.0;
 	private double defaultPrice = 1000;
-	private double currentPrice;
+	private double currentPrice; // Farm Current Cost
 	private double upgradePrice = defaultPrice * 1.2;
 
 	public Farm() {
